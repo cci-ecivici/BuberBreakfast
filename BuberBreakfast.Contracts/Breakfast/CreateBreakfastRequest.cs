@@ -1,6 +1,6 @@
 ﻿namespace BuberBreakfast.Contracts.Breakfast;
 
-public record CreateBreakfatRequest(
+public record CreateBreakfastRequest(
 
     string Name,
     string Description,

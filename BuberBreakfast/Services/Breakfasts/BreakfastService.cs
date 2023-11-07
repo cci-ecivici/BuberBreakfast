@@ -1,17 +1,42 @@
 using BuberBreakfast.Models;
+using BuberBreakfast.ServiceErrors;
+using ErrorOr;
 
 namespace BuberBreakfast.Services.Breakfasts;
 
-public class breakfastService : IBreakfastService
+public class BreakfastService : IBreakfastService
 {
-    private static readonly Dictionary<Guid, Breakfast> _breakfast = new ();
-    public void CreateBreakfast(Breakfast breakfast)
+    private static readonly Dictionary<Guid, Breakfast> _breakfasts = new();
+
+    public ErrorOr<Created> CreateBreakfast(Breakfast breakfast)
+    {
+        _breakfasts.Add(breakfast.Id, breakfast);
+
+        return Result.Created;
+    }
+
+    public ErrorOr<Deleted> DeleteBreakfast(Guid id)
+    {
+        _breakfasts.Remove(id);
+
+        return Result.Deleted;
+    }
+
+    public ErrorOr<Breakfast> GetBreakfast(Guid id)
+    {
+        if (_breakfasts.TryGetValue(id, out var breakfast))
         {
-            _breakfast.Add (breakfast.Id, breakfast);
+            return breakfast;
         }
 
-    public Breakfast CreateBreakfast(Guid id)
+        return Errors.Breakfast.NotFound;
+    }
+
+    public ErrorOr<UpdateBreakfast> UpdateBreakfast(Breakfast breakfast)
     {
-        return _breakfast[id];
+        var isNewlyCreated = !_breakfasts.ContainsKey(breakfast.Id);
+        _breakfasts[breakfast.Id] = breakfast;
+
+        return new UpdateBreakfast(isNewlyCreated);
     }
 }
