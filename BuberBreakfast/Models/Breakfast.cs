@@ -7,9 +7,9 @@ namespace BuberBreakfast.Models;
 public class Breakfast
 {
     public const int MinNameLength = 3;
-    public const int MaxNameLength = 50;
+    public const int MaxNameLength = 150;
 
-    public const int MinDescriptionLength = 50;
+    public const int MinDescriptionLength = 3;
     public const int MaxDescriptionLength = 150;
 
     public Guid Id { get; }
@@ -78,7 +78,7 @@ public class Breakfast
             sweet);
     }
 
-    public static ErrorOr<Breakfast> From(CreateBreakfatRequest request)
+    public static ErrorOr<Breakfast> From(CreateBreakfastRequest request)
     {
         return Create(
             request.Name,

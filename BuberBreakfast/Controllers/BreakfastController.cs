@@ -17,7 +17,7 @@ public class BreakfastsController : ApiController
     }
 
     [HttpPost]
-    public IActionResult CreateBreakfast(CreateBreakfatRequest request)
+    public IActionResult CreateBreakfast(CreateBreakfastRequest request)
     {
         ErrorOr<Breakfast> requestToBreakfastResult = Breakfast.From(request);
 

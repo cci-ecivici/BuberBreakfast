@@ -27,3 +27,4 @@ C:\Users\ecivici\source\repos\BuberBreakfast\BuberBreakfast\obj\Debug\net7.0\ref
 C:\Users\ecivici\source\repos\BuberBreakfast\BuberBreakfast\obj\Debug\net7.0\BuberBreakfast.pdb
 C:\Users\ecivici\source\repos\BuberBreakfast\BuberBreakfast\obj\Debug\net7.0\BuberBreakfast.genruntimeconfig.cache
 C:\Users\ecivici\source\repos\BuberBreakfast\BuberBreakfast\obj\Debug\net7.0\ref\BuberBreakfast.dll
+C:\Users\ecivici\source\repos\BuberBreakfast\BuberBreakfast\bin\Debug\net7.0\ErrorOr.dll
